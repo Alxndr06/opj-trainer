@@ -11,7 +11,7 @@
     <section class="card inf-list-card">
         <div class="inf-list-header">
             <h2 class="inf-list-title">Toutes les infractions</h2>
-            <a href="index.php" class="btn btn-secondary inf-back-link">
+            <a href="index.php" class="btn btn-primary inf-back-link">
                 ⬅ Retour au trainer
             </a>
         </div>
@@ -91,39 +91,5 @@
         <?php endif; ?>
     </section>
 </main>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const buttons = document.querySelectorAll('[data-toggle-details]');
-
-        buttons.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('.infraction-item');
-                const details = item.querySelector('.infraction-item-details');
-                const isHidden = details.hasAttribute('hidden');
-
-                // Option : fermer les autres
-                document.querySelectorAll('.infraction-item-details').forEach((block) => {
-                    if (block !== details) {
-                        block.setAttribute('hidden', 'hidden');
-                    }
-                });
-                document.querySelectorAll('.infraction-toggle').forEach((otherBtn) => {
-                    if (otherBtn !== btn) {
-                        otherBtn.textContent = 'Voir les éléments';
-                    }
-                });
-
-                if (isHidden) {
-                    details.removeAttribute('hidden');
-                    btn.textContent = 'Masquer les éléments';
-                } else {
-                    details.setAttribute('hidden', 'hidden');
-                    btn.textContent = 'Voir les éléments';
-                }
-            });
-        });
-    });
-</script>
 
 <?php require __DIR__ . '/../partials/footer.php'; ?>

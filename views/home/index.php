@@ -35,10 +35,9 @@
                 Nombre de visites sur ce trainer : <strong><?= (int)($visitCount ?? 0); ?></strong>
             </p>
 
-            <a href="index.php?controller=infraction&action=index" class="btn btn-secondary" style="margin-top: 0.5rem;">
+            <a href="index.php?controller=infraction&action=index" class="btn btn-primary" style="margin-top: 0.5rem;">
                 📚 Voir toutes les infractions
             </a>
-
         </div>
     </section>
 
