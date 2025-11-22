@@ -1,4 +1,13 @@
 /* ===========================
+   Variables globales
+   =========================== */
+:root {
+    --layout-max-width: 900px;
+    --color-body-bg: radial-gradient(circle at top, #132b4f 0, #050816 55%, #020308 100%);
+    --color-body-text: #e5f0ff;
+}
+
+/* ===========================
    Reset léger & base globale
    =========================== */
 
@@ -14,11 +23,11 @@ html {
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #132b4f 0, #050816 55%, #020308 100%);
-    color: #e5f0ff;
     min-height: 100vh;
     line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--color-body-bg);
+    color: var(--color-body-text);
 }
 
 /* ===========================
@@ -27,7 +36,7 @@ body {
 
 /* Mobile-first : marges plus petites sur petit écran */
 .trainer-container {
-    max-width: 900px;
+    max-width: var(--layout-max-width);
     margin: 1.5rem auto 2.5rem;
     padding: 0 1rem 2.5rem;
 }
@@ -57,10 +66,10 @@ body {
 }
 
 .hero .subtitle {
-    color: #b3c4ff;
     max-width: 650px;
     margin: 0.3rem auto 0;
     font-size: 0.95rem;
+    color: #b3c4ff;
 }
 
 /* Alignement à gauche sur écrans plus larges */
@@ -91,8 +100,8 @@ body {
 
 @media (min-width: 768px) {
     .card {
-        padding: 1.75rem 1.5rem;
         margin-top: 2rem;
+        padding: 1.75rem 1.5rem;
     }
 }
 
@@ -111,9 +120,9 @@ body {
 }
 
 .infraction-instruction {
-    color: #9fb1ff;
     margin-bottom: 1.3rem;
     font-size: 0.95rem;
+    color: #9fb1ff;
 }
 
 /* ===========================
@@ -125,15 +134,18 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0.7rem 1.3rem;
-    border-radius: 999px;
     border: none;
+    border-radius: 999px;
     cursor: pointer;
     font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
     white-space: nowrap;
+    transition:
+            transform 0.1s ease,
+            box-shadow 0.1s ease,
+            background 0.2s ease;
 }
 
 /* Sur mobile, le bouton principal prend toute la largeur pour être plus facile à cliquer */
@@ -159,13 +171,27 @@ body {
 }
 
 .btn-secondary {
+    margin-top: 1rem;
     background: linear-gradient(135deg, #0ea5e9, #2563eb);
     color: #f9fbff;
-    margin-top: 1rem;
 }
 
 .btn-secondary:hover {
     transform: translateY(-1px);
+}
+
+/* Bouton ghost pour s'intégrer à ton design */
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(148, 163, 255, 0.7);
+    color: #c7d2fe;
+    box-shadow: none;
+    text-transform: none;
+    letter-spacing: 0.02em;
+}
+
+.btn-ghost:hover {
+    background: rgba(30, 64, 175, 0.25);
 }
 
 /* Conteneur interne de la carte de contrôle (boutons + stats + visites) */
@@ -234,22 +260,25 @@ body {
 
 .field-group label {
     font-weight: 600;
-    color: #e2ebff;
     font-size: 0.9rem;
+    color: #e2ebff;
 }
 
 .field-group textarea {
     width: 100%;
-    resize: vertical;
     min-height: 110px;
     padding: 0.8rem 0.9rem;
-    border-radius: 0.85rem;
     border: 1px solid rgba(129, 140, 248, 0.4);
+    border-radius: 0.85rem;
     background: rgba(10, 20, 40, 0.95);
     color: #e5f0ff;
     font-size: 0.9rem;
+    resize: vertical;
     outline: none;
-    transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition:
+            border 0.15s ease,
+            box-shadow 0.15s ease,
+            background 0.15s ease;
 }
 
 .field-group textarea:focus {
@@ -329,17 +358,17 @@ body {
 }
 
 .feedback-block .status {
-    font-size: 0.85rem;
     margin-bottom: 0.6rem;
+    font-size: 0.85rem;
     color: #e5e7eb;
 }
 
 .expected-title {
+    margin-bottom: 0.15rem;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #9ca3af;
-    margin-bottom: 0.15rem;
 }
 
 .expected-text {
@@ -363,7 +392,7 @@ body {
 
 /* Mobile-first : header en colonne, centré */
 .site-header-inner {
-    max-width: 900px;
+    max-width: var(--layout-max-width);
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
@@ -400,9 +429,9 @@ body {
 
 .brand-title {
     font-weight: 700;
+    font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 0.85rem;
     color: #e5edff;
 }
 
@@ -442,14 +471,14 @@ body {
    =========================== */
 
 .site-footer {
-    border-top: 1px solid rgba(30, 64, 175, 0.7);
     margin-top: 2.5rem;
     padding: 1.3rem 0 1.8rem;
+    border-top: 1px solid rgba(30, 64, 175, 0.7);
     background: radial-gradient(circle at bottom, rgba(15, 23, 42, 0.96), rgba(3, 7, 18, 0.96));
 }
 
 .site-footer-inner {
-    max-width: 900px;
+    max-width: var(--layout-max-width);
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
@@ -477,6 +506,149 @@ body {
 
 .visit-counter {
     margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* ===========================
+   Liste des infractions
+   =========================== */
+
+.inf-list-card {
+    margin-top: 1.5rem;
+}
+
+.inf-list-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.inf-list-title {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e5f0ff;
+}
+
+.inf-back-link {
+    align-self: flex-start;
+}
+
+/* Sur écrans plus larges, header en ligne */
+@media (min-width: 640px) {
+    .inf-list-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+/* Liste */
+.infraction-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.infraction-item {
+    padding: 0.9rem 0.8rem;
+    border-radius: 0.9rem;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(88, 134, 255, 0.35);
+}
+
+.infraction-item-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.infraction-item-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.infraction-item-title {
+    margin: 0;
+    font-size: 0.98rem;
+    color: #e5f0ff;
+}
+
+.infraction-item-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(250, 204, 21, 0.7);
+    background: radial-gradient(
+            circle at top left,
+            rgba(250, 204, 21, 0.35),
+            rgba(30, 64, 175, 0.2)
+    );
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #facc15;
+}
+
+.infraction-toggle {
+    align-self: flex-start;
+}
+
+/* Détails */
+.infraction-item-details {
+    margin-top: 0.75rem;
+    padding-top: 0.7rem;
+    border-top: 1px dashed rgba(148, 163, 255, 0.45);
+}
+
+.infraction-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .infraction-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.infraction-column h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    color: #c7d2fe;
+}
+
+.infraction-elements {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    list-style: none;
+}
+
+.infraction-element-index {
+    margin-right: 0.3rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+}
+
+.infraction-element-text {
+    font-size: 0.88rem;
+    color: #dbeafe;
+}
+
+.infraction-empty {
+    margin: 0.2rem 0 0;
     font-size: 0.85rem;
     color: #9ca3af;
 }

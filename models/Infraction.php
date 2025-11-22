@@ -75,4 +75,28 @@ class Infraction extends Model
             'prioritaires' => (int) ($row['prioritaires'] ?? 0),
         ];
     }
+
+    /**
+     * Liste toutes les infractions pour la vue "catalogue".
+     */
+    public static function getAll(): array
+    {
+        $db = self::getDB();
+
+        $stmt = $db->query("
+            SELECT id, libelle, elements_materiels, elements_moraux, is_important
+            FROM infractions
+            ORDER BY libelle ASC
+        ");
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as &$row) {
+            $row['elements_materiels'] = json_decode($row['elements_materiels'], true) ?: [];
+            $row['elements_moraux']    = json_decode($row['elements_moraux'], true) ?: [];
+            $row['is_important']       = (int)($row['is_important'] ?? 0);
+        }
+
+        return $rows;
+    }
 }

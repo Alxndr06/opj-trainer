@@ -21,19 +21,24 @@
             </form>
 
             <div class="trainer-stats">
-            <span class="stat-badge">
-                Total infractions :
-                <strong><?= (int)($stats['total'] ?? 0); ?></strong>
-            </span>
+    <span class="stat-badge">
+        Total infractions :
+        <strong><?= (int)($stats['total'] ?? 0); ?></strong>
+    </span>
                 <span class="stat-badge stat-badge-accent">
-                Dont prioritaires :
-                <strong><?= (int)($stats['prioritaires'] ?? 0); ?></strong>
-            </span>
+        Dont prioritaires :
+        <strong><?= (int)($stats['prioritaires'] ?? 0); ?></strong>
+    </span>
             </div>
 
             <p class="visit-counter">
                 Nombre de visites sur ce trainer : <strong><?= (int)($visitCount ?? 0); ?></strong>
             </p>
+
+            <a href="index.php?controller=infraction&action=index" class="btn btn-secondary" style="margin-top: 0.5rem;">
+                📚 Voir toutes les infractions
+            </a>
+
         </div>
     </section>
 
