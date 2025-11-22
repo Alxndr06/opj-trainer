@@ -50,3 +50,5 @@ phpunit.xml
 
 # === Fichiers perso ===
 /config/dev.php
+
+config.php
